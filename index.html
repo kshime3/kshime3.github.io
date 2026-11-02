@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EDIT: Page title and description (shown in browser tabs and search results) -->
+  <title>Kyle Shimer · Support Operations</title>
+  <meta name="description" content="Kyle Shimer is a support operations manager and Zendesk administrator in the Chicago area.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Colors: change these to restyle the whole page ---------- */
+    :root {
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --ink: #1d2733;
+      --muted: #5b6673;
+      --line: #e3e0d9;
+      --accent: #2f6f6a;
+      --accent-soft: #e6efed;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14181d;
+        --surface: #1b2027;
+        --ink: #e8e6e1;
+        --muted: #9aa3ad;
+        --line: #2a313a;
+        --accent: #7fbfb7;
+        --accent-soft: #1f2d2c;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header { border-bottom: 1px solid var(--line); }
+    header .wrap {
+      display: flex; justify-content: space-between; align-items: center;
+      height: 64px;
+    }
+    .brand { font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+    nav a { color: var(--muted); text-decoration: none; margin-left: 24px; font-size: 15px; }
+    nav a:hover { color: var(--ink); }
+
+    /* Intro */
+    .intro {
+      display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center;
+      padding: 80px 0 64px;
+    }
+    .photo {
+      position: relative;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: var(--accent-soft);
+      display: grid; place-items: center;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 56px; color: var(--accent);
+      overflow: hidden;
+    }
+    .photo img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+    h1 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 600; font-size: 48px; line-height: 1.1;
+      letter-spacing: -0.02em; margin: 0 0 8px;
+    }
+    .role { font-size: 19px; color: var(--accent); font-weight: 500; margin: 0 0 16px; }
+    .lede { color: var(--muted); margin: 0; max-width: 34em; }
+
+    /* Sections */
+    section { padding: 56px 0; border-top: 1px solid var(--line); }
+    h2 {
+      font-size: 13px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin: 0 0 24px;
+    }
+    h3 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 22px; font-weight: 600; margin: 40px 0 12px;
+    }
+    p { margin: 0 0 18px; max-width: 40em; }
+
+    /* Highlights */
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin: 8px 0 0; padding: 0; list-style: none;
+    }
+    .stats li {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 10px; padding: 20px;
+    }
+    .stats strong {
+      display: block;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 30px; font-weight: 600; line-height: 1.2; color: var(--ink);
+    }
+    .stats span { font-size: 14px; color: var(--muted); line-height: 1.45; display: block; margin-top: 6px; }
+
+    /* Values list */
+    .values { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 40em; }
+    .values li { padding-left: 20px; position: relative; }
+    .values li::before {
+      content: ""; position: absolute; left: 0; top: 0.7em;
+      width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+    }
+    .values b { font-weight: 600; }
+
+    /* Contact */
+    .contact { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .contact li { display: flex; gap: 16px; align-items: baseline; }
+    .contact .label { width: 90px; flex-shrink: 0; color: var(--muted); font-size: 15px; }
+    .contact a { font-weight: 500; }
+
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+
+    /* Phones and small tablets */
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      nav { display: none; }
+      .intro { grid-template-columns: 1fr; gap: 28px; padding: 48px 0 40px; }
+      .photo { width: 140px; height: 140px; font-size: 40px; }
+      h1 { font-size: 36px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stats strong { font-size: 24px; }
+      section { padding: 44px 0; }
+      .contact li { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#">Kyle Shimer</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ===================== INTRO ===================== -->
+    <div class="intro">
+      <!-- PHOTO: save a square photo named "photo.jpg" in the same folder as this file.
+           It replaces the initials automatically. Until then, the initials show. -->
+      <div class="photo" aria-hidden="true">
+        KS
+        <img src="photo.jpg" alt="" onerror="this.remove()">
+      </div>
+
+      <div>
+        <h1>Kyle Shimer</h1>
+        <p class="role">Support Operations Manager &amp; Zendesk Administrator</p>
+        <p class="lede">
+          I build support teams and the systems behind them so customers get fast, reliable help
+          and the people doing the work aren't stuck fighting their tools.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about">
+      <h2>About me</h2>
+
+      <p>
+        I'm the person behind the scenes who makes customer support work: the systems, the data,
+        and the team behind every answer a customer gets. I've spent more than a decade at Locusview,
+        a software company serving the utility construction industry, growing with it from its fifth
+        employee to the company it is today. These days I lead our support team and run the Zendesk
+        setup that keeps everything moving.
+      </p>
+      <p>
+        What I enjoy most is finding the pattern behind a problem. A growing backlog, a question
+        customers keep asking, a response that's too slow: there's usually a better process or a
+        smart automation waiting to be built. Right now that means teaching an AI agent to handle
+        routine requests so our team can focus on the hard ones.
+      </p>
+
+      <!-- EDIT: Highlights. Change the number in <strong> and the description in <span>. -->
+      <h3>A few things I'm proud of</h3>
+      <ul class="stats">
+        <li><strong>87%</strong><span>fewer open tickets after rethinking how our queue works</span></li>
+        <li><strong>94.9%</strong><span>of customers happy with the help they got in 2025</span></li>
+        <li><strong>90%</strong><span>of tickets answered on time, measured against a standard I created</span></li>
+        <li><strong>36 min</strong><span>to answer our most urgent requests, down from 2 hours</span></li>
+      </ul>
+
+      <h3>What I care about</h3>
+      <ul class="values">
+        <li><b>Fix the system, not just the ticket.</b> If customers keep running into the same problem, the answer is a better process, a clearer article, or an automation, not a faster workaround.</li>
+        <li><b>Measure what matters.</b> Clear SLAs, honest dashboards, and CSAT give a team something real to improve against and give leadership a view they can trust.</li>
+        <li><b>Develop the people.</b> I hire, coach, and support engineers so they grow into the work, and I stay hands-on as the final escalation point when things get hard.</li>
+        <li><b>Work across teams.</b> The best support outcomes come from close partnership with Engineering, Product, DevOps, and Implementation.</li>
+      </ul>
+
+      <!-- EDIT: Personal section -->
+      <h3>Outside of work</h3>
+      <p>
+        Most of my time away from work belongs to my wife, Ashley, and our young daughter. When I find a free
+        moment, you'll probably catch me at a chessboard or out on a run. Running has been part of my
+        life since middle school, when I won an individual state championship in cross country, and I
+        went on to earn all-state honors in high school.
+      </p>
+      <p>
+        I'm also a proud University of Illinois alum and a huge Fighting Illini fan. Whatever the sport,
+        if Illinois is playing, I'm watching.
+      </p>
+
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>The best way to reach me is by email. I'm always glad to connect and talk about support operations, Zendesk, or building great support teams.</p>
+
+      <ul class="contact">
+        <li>
+          <span class="label">Email</span>
+          <a href="mailto:kshime3@gmail.com">kshime3@gmail.com</a>
+        </li>
+        <li>
+          <span class="label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/kyle-shimer-22441272/">linkedin.com/in/kyle-shimer-22441272</a>
+        </li>
+        <li>
+          <span class="label">Location</span>
+          <span>Chicago area</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Kyle Shimer</div>
+  </footer>
+
+</body>
+</html>
